@@ -71,5 +71,12 @@ namespace BtkProje.App
         {
             SayfaKontrol.SayfaAc<UcUrunler>("Ürünler", null);
         }
+
+        private void nbiParametreler_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            SayfaKontrol.SayfaAc<UcParametreler>("Parametreler", Properties.Resources
+                .iconsetredtoblack4_32x32
+                );
+        }
     }
 }

@@ -43,10 +43,11 @@
             navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
             nbiKategoriler = new DevExpress.XtraNavBar.NavBarItem();
             navBarGroup3 = new DevExpress.XtraNavBar.NavBarGroup();
+            nbiUrunListesi = new DevExpress.XtraNavBar.NavBarItem();
             navBarGroup4 = new DevExpress.XtraNavBar.NavBarGroup();
             navBarGroup5 = new DevExpress.XtraNavBar.NavBarGroup();
             xtraTabControlMain = new DevExpress.XtraTab.XtraTabControl();
-            nbiUrunListesi = new DevExpress.XtraNavBar.NavBarItem();
+            nbiParametreler = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)ribbonControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainerControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainerControl1.Panel1).BeginInit();
@@ -140,7 +141,7 @@
             navBarControl1.Appearance.ItemHotTracked.Options.UseFont = true;
             navBarControl1.Dock = DockStyle.Fill;
             navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] { navBarGroup1, navBarGroup2, navBarGroup3, navBarGroup4, navBarGroup5 });
-            navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] { nbiKullanicilar, nbiAyarlar, nbiKategoriler, nbiUrunListesi });
+            navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] { nbiKullanicilar, nbiAyarlar, nbiKategoriler, nbiUrunListesi, nbiParametreler });
             navBarControl1.Location = new Point(0, 0);
             navBarControl1.Name = "navBarControl1";
             navBarControl1.OptionsNavPane.ExpandedWidth = 294;
@@ -153,7 +154,7 @@
             navBarGroup1.Caption = "Temel İşlemler";
             navBarGroup1.Expanded = true;
             navBarGroup1.ImageOptions.SmallImage = Properties.Resources.properties_32x32;
-            navBarGroup1.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] { new DevExpress.XtraNavBar.NavBarItemLink(nbiKullanicilar), new DevExpress.XtraNavBar.NavBarItemLink(nbiAyarlar) });
+            navBarGroup1.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] { new DevExpress.XtraNavBar.NavBarItemLink(nbiKullanicilar), new DevExpress.XtraNavBar.NavBarItemLink(nbiAyarlar), new DevExpress.XtraNavBar.NavBarItemLink(nbiParametreler) });
             navBarGroup1.Name = "navBarGroup1";
             // 
             // nbiKullanicilar
@@ -196,6 +197,12 @@
             navBarGroup3.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] { new DevExpress.XtraNavBar.NavBarItemLink(nbiUrunListesi) });
             navBarGroup3.Name = "navBarGroup3";
             // 
+            // nbiUrunListesi
+            // 
+            nbiUrunListesi.Caption = "Ürün Listesi";
+            nbiUrunListesi.Name = "nbiUrunListesi";
+            nbiUrunListesi.LinkClicked += nbiUrunListesi_LinkClicked;
+            // 
             // navBarGroup4
             // 
             navBarGroup4.Caption = "Tedarikçiler";
@@ -218,11 +225,12 @@
             xtraTabControlMain.TabIndex = 0;
             xtraTabControlMain.CloseButtonClick += xtraTabControlMain_CloseButtonClick;
             // 
-            // nbiUrunListesi
+            // nbiParametreler
             // 
-            nbiUrunListesi.Caption = "Ürün Listesi";
-            nbiUrunListesi.Name = "nbiUrunListesi";
-            nbiUrunListesi.LinkClicked += nbiUrunListesi_LinkClicked;
+            nbiParametreler.Caption = "Parametreler";
+            nbiParametreler.ImageOptions.SmallImage = Properties.Resources.iconsetredtoblack4_32x32;
+            nbiParametreler.Name = "nbiParametreler";
+            nbiParametreler.LinkClicked += nbiParametreler_LinkClicked;
             // 
             // frmAna
             // 
@@ -269,5 +277,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraNavBar.NavBarItem nbiKategoriler;
         private DevExpress.XtraNavBar.NavBarItem nbiUrunListesi;
+        private DevExpress.XtraNavBar.NavBarItem nbiParametreler;
     }
 }
