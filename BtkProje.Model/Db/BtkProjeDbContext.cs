@@ -65,7 +65,6 @@ namespace BtkProje.Model.Db
                 }
 
             }
-
         }
 
         public DbSet<TblKullanici> Kullanicilar { get; set; }

@@ -100,7 +100,10 @@ namespace BtkProje.Servis
         {
             return ctx.Urunler.ToList();
         }
-
+        public static List<TblUrun> UrunListesi(int kategoriId)
+        {
+            return ctx.Urunler.Where(x=>x.KategoriId == kategoriId).ToList();
+        }
         public static BindingList<TblUrun> UrunBagliListesi()
         {
             ctx.Urunler.Load();

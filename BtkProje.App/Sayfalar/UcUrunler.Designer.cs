@@ -28,17 +28,170 @@
         /// </summary>
         private void InitializeComponent()
         {
+            gridControl1 = new DevExpress.XtraGrid.GridControl();
+            gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            colUrunKod = new DevExpress.XtraGrid.Columns.GridColumn();
+            colUrunAd = new DevExpress.XtraGrid.Columns.GridColumn();
+            colKategori = new DevExpress.XtraGrid.Columns.GridColumn();
+            repositoryItemLookUpEditKategoriler = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            colAciklama = new DevExpress.XtraGrid.Columns.GridColumn();
+            colBirimId = new DevExpress.XtraGrid.Columns.GridColumn();
+            repositoryItemLookUpEditBirimler = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            colMinStok = new DevExpress.XtraGrid.Columns.GridColumn();
+            repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            colMaksStok = new DevExpress.XtraGrid.Columns.GridColumn();
+            ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemLookUpEditKategoriler).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemLookUpEditBirimler).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemSpinEdit1).BeginInit();
             SuspendLayout();
+            // 
+            // gridControl1
+            // 
+            gridControl1.Dock = DockStyle.Fill;
+            gridControl1.Location = new Point(0, 0);
+            gridControl1.MainView = gridView1;
+            gridControl1.Name = "gridControl1";
+            gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { repositoryItemLookUpEditBirimler, repositoryItemSpinEdit1, repositoryItemLookUpEditKategoriler });
+            gridControl1.Size = new Size(899, 573);
+            gridControl1.TabIndex = 3;
+            gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
+            // 
+            // gridView1
+            // 
+            gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colUrunKod, colUrunAd, colKategori, colAciklama, colBirimId, colMinStok, colMaksStok });
+            gridView1.GridControl = gridControl1;
+            gridView1.Name = "gridView1";
+            gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            // 
+            // colUrunKod
+            // 
+            colUrunKod.Caption = "Ürün Kodu";
+            colUrunKod.FieldName = "UrunKod";
+            colUrunKod.MinWidth = 25;
+            colUrunKod.Name = "colUrunKod";
+            colUrunKod.Visible = true;
+            colUrunKod.VisibleIndex = 0;
+            colUrunKod.Width = 94;
+            // 
+            // colUrunAd
+            // 
+            colUrunAd.Caption = "Ürün Adı";
+            colUrunAd.FieldName = "UrunAd";
+            colUrunAd.MinWidth = 25;
+            colUrunAd.Name = "colUrunAd";
+            colUrunAd.Visible = true;
+            colUrunAd.VisibleIndex = 1;
+            colUrunAd.Width = 94;
+            // 
+            // colKategori
+            // 
+            colKategori.Caption = "Kategori";
+            colKategori.ColumnEdit = repositoryItemLookUpEditKategoriler;
+            colKategori.FieldName = "KategoriId";
+            colKategori.MinWidth = 25;
+            colKategori.Name = "colKategori";
+            colKategori.Visible = true;
+            colKategori.VisibleIndex = 2;
+            colKategori.Width = 94;
+            // 
+            // repositoryItemLookUpEditKategoriler
+            // 
+            repositoryItemLookUpEditKategoriler.AutoHeight = false;
+            repositoryItemLookUpEditKategoriler.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            repositoryItemLookUpEditKategoriler.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] { new DevExpress.XtraEditors.Controls.LookUpColumnInfo("KategoriAd", "Kategori Adı") });
+            repositoryItemLookUpEditKategoriler.DisplayMember = "KategoriAd";
+            repositoryItemLookUpEditKategoriler.Name = "repositoryItemLookUpEditKategoriler";
+            repositoryItemLookUpEditKategoriler.ValueMember = "Id";
+            // 
+            // colAciklama
+            // 
+            colAciklama.Caption = "Açıklama";
+            colAciklama.FieldName = "Aciklama";
+            colAciklama.MinWidth = 25;
+            colAciklama.Name = "colAciklama";
+            colAciklama.Visible = true;
+            colAciklama.VisibleIndex = 3;
+            colAciklama.Width = 94;
+            // 
+            // colBirimId
+            // 
+            colBirimId.Caption = "Birimi";
+            colBirimId.ColumnEdit = repositoryItemLookUpEditBirimler;
+            colBirimId.FieldName = "BirimId";
+            colBirimId.MinWidth = 25;
+            colBirimId.Name = "colBirimId";
+            colBirimId.Visible = true;
+            colBirimId.VisibleIndex = 4;
+            colBirimId.Width = 94;
+            // 
+            // repositoryItemLookUpEditBirimler
+            // 
+            repositoryItemLookUpEditBirimler.AutoHeight = false;
+            repositoryItemLookUpEditBirimler.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            repositoryItemLookUpEditBirimler.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] { new DevExpress.XtraEditors.Controls.LookUpColumnInfo("BirimAd", "Birim Adı") });
+            repositoryItemLookUpEditBirimler.DisplayMember = "BirimAd";
+            repositoryItemLookUpEditBirimler.Name = "repositoryItemLookUpEditBirimler";
+            repositoryItemLookUpEditBirimler.ValueMember = "Id";
+            // 
+            // colMinStok
+            // 
+            colMinStok.Caption = "Min Stok";
+            colMinStok.ColumnEdit = repositoryItemSpinEdit1;
+            colMinStok.FieldName = "MinStok";
+            colMinStok.MinWidth = 25;
+            colMinStok.Name = "colMinStok";
+            colMinStok.Visible = true;
+            colMinStok.VisibleIndex = 5;
+            colMinStok.Width = 94;
+            // 
+            // repositoryItemSpinEdit1
+            // 
+            repositoryItemSpinEdit1.AutoHeight = false;
+            repositoryItemSpinEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            repositoryItemSpinEdit1.MaxValue = new decimal(new int[] { 100, 0, 0, 0 });
+            repositoryItemSpinEdit1.Name = "repositoryItemSpinEdit1";
+            // 
+            // colMaksStok
+            // 
+            colMaksStok.Caption = "Maks Stok";
+            colMaksStok.ColumnEdit = repositoryItemSpinEdit1;
+            colMaksStok.FieldName = "MaksStok";
+            colMaksStok.MinWidth = 25;
+            colMaksStok.Name = "colMaksStok";
+            colMaksStok.Visible = true;
+            colMaksStok.VisibleIndex = 6;
+            colMaksStok.Width = 94;
             // 
             // UcUrunler
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(gridControl1);
             Name = "UcUrunler";
-            Size = new Size(583, 573);
+            Size = new Size(899, 573);
+            ((System.ComponentModel.ISupportInitialize)gridControl1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemLookUpEditKategoriler).EndInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemLookUpEditBirimler).EndInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemSpinEdit1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
+
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn colUrunKod;
+        private DevExpress.XtraGrid.Columns.GridColumn colUrunAd;
+        private DevExpress.XtraGrid.Columns.GridColumn colKategori;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEditKategoriler;
+        private DevExpress.XtraGrid.Columns.GridColumn colAciklama;
+        private DevExpress.XtraGrid.Columns.GridColumn colBirimId;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEditBirimler;
+        private DevExpress.XtraGrid.Columns.GridColumn colMinStok;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
+        private DevExpress.XtraGrid.Columns.GridColumn colMaksStok;
     }
 }

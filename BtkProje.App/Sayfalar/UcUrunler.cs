@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BtkProje.Servis;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,18 @@ namespace BtkProje.App.Sayfalar
         public UcUrunler()
         {
             InitializeComponent();
+
+            repositoryItemLookUpEditBirimler.DataSource = DbServisi.BirimListesi();
+
+            repositoryItemLookUpEditKategoriler.DataSource = DbServisi.KategoriListesi();
+
+            VerileriYukle();
         }
+
+        void VerileriYukle()
+        {
+            gridControl1.DataSource = DbServisi.UrunBagliListesi();
+        }
+
     }
 }
