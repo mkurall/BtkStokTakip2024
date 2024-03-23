@@ -153,5 +153,22 @@ namespace BtkProje.App
                 veri.Sil();
             }
         }
+
+        private void nbiTedarikciler_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            SayfaKontrol.SayfaAc<UcTedarikciler>("Tedarikçiler", Properties.Resources.employee_32x32);
+
+        }
+
+        private void nbiMusteriler_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            SayfaKontrol.SayfaAc<UcMusteriler>("Müþteriler", Properties.Resources.boperson_32x32);
+
+        }
+
+        private void ribbonControl1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

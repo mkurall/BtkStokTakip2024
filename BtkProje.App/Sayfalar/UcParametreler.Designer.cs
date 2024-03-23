@@ -48,11 +48,11 @@
             // gridControl1
             // 
             gridControl1.Dock = DockStyle.Left;
-            gridControl1.Location = new Point(4, 30);
+            gridControl1.Location = new Point(4, 28);
             gridControl1.MainView = gridView1;
             gridControl1.Name = "gridControl1";
             gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { repositoryItemButtonEdit1 });
-            gridControl1.Size = new Size(360, 341);
+            gridControl1.Size = new Size(360, 343);
             gridControl1.TabIndex = 1;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 

@@ -121,5 +121,44 @@ namespace BtkProje.Servis
             ctx.Urunler.Remove(urun);
         }
         #endregion
+
+        #region Müşteri İşlemleri
+        public static List<TblMusteri> MusteriListesi()
+        {
+            return ctx.Musteriler.ToList();
+        }
+        public static BindingList<TblMusteri> MusteriBagliListesi()
+        {
+            ctx.Musteriler.Load();
+            return ctx.Musteriler.Local.ToBindingList();
+        }
+        public static void MusteriEkle(TblMusteri musteri)
+        {
+            ctx.Musteriler.Add(musteri);
+        }
+        public static void MusteriSil(TblMusteri musteri)
+        {
+            ctx.Musteriler.Remove(musteri);
+        }
+        #endregion
+        #region Tedarikçi İşlemleri
+        public static List<TblTedarikci> TedarikciListesi()
+        {
+            return ctx.Tedarikciler.ToList();
+        }
+        public static BindingList<TblTedarikci> TedarikciBagliListesi()
+        {
+            ctx.Musteriler.Load();
+            return ctx.Tedarikciler.Local.ToBindingList();
+        }
+        public static void TedarikciEkle(TblTedarikci tedarikci)
+        {
+            ctx.Tedarikciler.Add(tedarikci);
+        }
+        public static void TedarikciSil(TblTedarikci tedarikci)
+        {
+            ctx.Tedarikciler.Remove(tedarikci);
+        }
+        #endregion
     }
 }

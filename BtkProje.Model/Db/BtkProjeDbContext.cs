@@ -71,5 +71,8 @@ namespace BtkProje.Model.Db
         public DbSet<TblKategori> Kategoriler { get; set; }
         public DbSet<TblBirim> Birimler { get; set; }
         public DbSet<TblUrun> Urunler { get; set; }
+
+        public DbSet<TblMusteri> Musteriler { get; set; }
+        public DbSet<TblTedarikci> Tedarikciler { get; set; }
     }
 }
