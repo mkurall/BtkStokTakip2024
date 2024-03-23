@@ -32,6 +32,7 @@ namespace BtkProje.Servis
 
         public static void Kaydet()
         {
+            ctx.TemelVerileriYaz(OturumAcanKullanici);
             ctx.SaveChanges();
         }
 

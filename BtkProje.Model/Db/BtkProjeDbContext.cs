@@ -45,6 +45,29 @@ namespace BtkProje.Model.Db
                 .HasForeignKey(x=>x.BirimId);
         }
 
+        public void TemelVerileriYaz(TblKullanici kullanici)
+        {
+            var varliklar = ChangeTracker.Entries().Where(e => e.Entity is TemelModel && (
+            e.State == EntityState.Added || e.State == EntityState.Modified));
+
+
+            foreach(var varlik in varliklar)
+            {
+                if(varlik.State == EntityState.Added)
+                {
+                    ((TemelModel)varlik.Entity).OlusturmaTarihi = DateTime.Now;
+                    ((TemelModel)varlik.Entity).OlusturanKullanici = kullanici;
+                }
+                if (varlik.State == EntityState.Modified)
+                {
+                    ((TemelModel)varlik.Entity).GuncellemeTarihi = DateTime.Now;
+                    ((TemelModel)varlik.Entity).GuncelleyenKullanici = kullanici;
+                }
+
+            }
+
+        }
+
         public DbSet<TblKullanici> Kullanicilar { get; set; }
         public DbSet<TblKategori> Kategoriler { get; set; }
         public DbSet<TblBirim> Birimler { get; set; }

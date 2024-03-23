@@ -1,4 +1,5 @@
-﻿using BtkProje.Servis;
+﻿using BtkProje.Model.Modeller;
+using BtkProje.Servis;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,19 @@ namespace BtkProje.App.Sayfalar
         {
             InitializeComponent();
 
+            repositoryItemButtonEdit1.ButtonClick += RepositoryItemButtonEdit1_ButtonClick;
+
             VerileriYukle();
+        }
+
+        private void RepositoryItemButtonEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            TblKategori kategori = gridView1.GetFocusedRow() as TblKategori;
+
+            if(kategori != null)
+            {
+                SayfaKontrol.SayfaAc<UcKategoriDetay>("Kategori Detay", null, true, kategori);
+            }
         }
 
         void VerileriYukle()

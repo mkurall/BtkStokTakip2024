@@ -54,6 +54,8 @@ namespace BtkProje.App
 
         private void bbiKaydet_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            Validate();
+
             DbServisi.Kaydet();
 
             XtraMessageBox.Show("Veriler kayýt edildi.", "Bilgi",
