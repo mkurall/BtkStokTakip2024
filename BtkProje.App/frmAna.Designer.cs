@@ -30,7 +30,12 @@
         {
             ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             bbiKaydet = new DevExpress.XtraBars.BarButtonItem();
-            barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            bbiYeni = new DevExpress.XtraBars.BarButtonItem();
+            bbiIlkKayit = new DevExpress.XtraBars.BarButtonItem();
+            bbiOncekiKayit = new DevExpress.XtraBars.BarButtonItem();
+            bbiSonrakiKayit = new DevExpress.XtraBars.BarButtonItem();
+            bbiSonKayit = new DevExpress.XtraBars.BarButtonItem();
+            bbiSil = new DevExpress.XtraBars.BarButtonItem();
             ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -40,6 +45,7 @@
             navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             nbiKullanicilar = new DevExpress.XtraNavBar.NavBarItem();
             nbiAyarlar = new DevExpress.XtraNavBar.NavBarItem();
+            nbiParametreler = new DevExpress.XtraNavBar.NavBarItem();
             navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
             nbiKategoriler = new DevExpress.XtraNavBar.NavBarItem();
             navBarGroup3 = new DevExpress.XtraNavBar.NavBarGroup();
@@ -47,7 +53,6 @@
             navBarGroup4 = new DevExpress.XtraNavBar.NavBarGroup();
             navBarGroup5 = new DevExpress.XtraNavBar.NavBarGroup();
             xtraTabControlMain = new DevExpress.XtraTab.XtraTabControl();
-            nbiParametreler = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)ribbonControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainerControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainerControl1.Panel1).BeginInit();
@@ -62,9 +67,9 @@
             // ribbonControl1
             // 
             ribbonControl1.ExpandCollapseItem.Id = 0;
-            ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbonControl1.ExpandCollapseItem, bbiKaydet, barButtonItem1 });
+            ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbonControl1.ExpandCollapseItem, bbiKaydet, bbiYeni, bbiIlkKayit, bbiOncekiKayit, bbiSonrakiKayit, bbiSonKayit, bbiSil });
             ribbonControl1.Location = new Point(0, 0);
-            ribbonControl1.MaxItemId = 3;
+            ribbonControl1.MaxItemId = 8;
             ribbonControl1.Name = "ribbonControl1";
             ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1 });
             ribbonControl1.Size = new Size(1048, 183);
@@ -79,14 +84,59 @@
             bbiKaydet.Name = "bbiKaydet";
             bbiKaydet.ItemClick += bbiKaydet_ItemClick;
             // 
-            // barButtonItem1
+            // bbiYeni
             // 
-            barButtonItem1.Caption = "Yeni Kayıt";
-            barButtonItem1.Id = 2;
-            barButtonItem1.ImageOptions.Image = Properties.Resources.new_16x16;
-            barButtonItem1.ImageOptions.LargeImage = Properties.Resources.new_32x32;
-            barButtonItem1.Name = "barButtonItem1";
-            barButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            bbiYeni.Caption = "Yeni Kayıt";
+            bbiYeni.Id = 2;
+            bbiYeni.ImageOptions.Image = Properties.Resources.new_16x16;
+            bbiYeni.ImageOptions.LargeImage = Properties.Resources.new_32x32;
+            bbiYeni.Name = "bbiYeni";
+            bbiYeni.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            // 
+            // bbiIlkKayit
+            // 
+            bbiIlkKayit.Caption = "İlk Kayıt";
+            bbiIlkKayit.Id = 3;
+            bbiIlkKayit.ImageOptions.Image = Properties.Resources.first_16x16;
+            bbiIlkKayit.ImageOptions.LargeImage = Properties.Resources.first_32x32;
+            bbiIlkKayit.Name = "bbiIlkKayit";
+            bbiIlkKayit.ItemClick += bbiIlkKayit_ItemClick;
+            // 
+            // bbiOncekiKayit
+            // 
+            bbiOncekiKayit.Caption = "Önceki";
+            bbiOncekiKayit.Id = 4;
+            bbiOncekiKayit.ImageOptions.Image = Properties.Resources.prev_16x16;
+            bbiOncekiKayit.ImageOptions.LargeImage = Properties.Resources.prev_32x32;
+            bbiOncekiKayit.Name = "bbiOncekiKayit";
+            bbiOncekiKayit.ItemClick += bbiOncekiKayit_ItemClick;
+            // 
+            // bbiSonrakiKayit
+            // 
+            bbiSonrakiKayit.Caption = "Sonraki";
+            bbiSonrakiKayit.Id = 5;
+            bbiSonrakiKayit.ImageOptions.Image = Properties.Resources.next_16x16;
+            bbiSonrakiKayit.ImageOptions.LargeImage = Properties.Resources.next_32x32;
+            bbiSonrakiKayit.Name = "bbiSonrakiKayit";
+            bbiSonrakiKayit.ItemClick += bbiSonrakiKayit_ItemClick;
+            // 
+            // bbiSonKayit
+            // 
+            bbiSonKayit.Caption = "Son Kayıt";
+            bbiSonKayit.Id = 6;
+            bbiSonKayit.ImageOptions.Image = Properties.Resources.last_16x16;
+            bbiSonKayit.ImageOptions.LargeImage = Properties.Resources.last_32x32;
+            bbiSonKayit.Name = "bbiSonKayit";
+            bbiSonKayit.ItemClick += bbiSonKayit_ItemClick;
+            // 
+            // bbiSil
+            // 
+            bbiSil.Caption = "Sil";
+            bbiSil.Id = 7;
+            bbiSil.ImageOptions.Image = Properties.Resources.deletelist2_16x16;
+            bbiSil.ImageOptions.LargeImage = Properties.Resources.deletelist2_32x32;
+            bbiSil.Name = "bbiSil";
+            bbiSil.ItemClick += bbiSil_ItemClick;
             // 
             // ribbonPage1
             // 
@@ -102,9 +152,14 @@
             // 
             // ribbonPageGroup2
             // 
-            ribbonPageGroup2.ItemLinks.Add(barButtonItem1);
+            ribbonPageGroup2.ItemLinks.Add(bbiYeni);
+            ribbonPageGroup2.ItemLinks.Add(bbiIlkKayit);
+            ribbonPageGroup2.ItemLinks.Add(bbiOncekiKayit);
+            ribbonPageGroup2.ItemLinks.Add(bbiSonrakiKayit);
+            ribbonPageGroup2.ItemLinks.Add(bbiSonKayit);
+            ribbonPageGroup2.ItemLinks.Add(bbiSil);
             ribbonPageGroup2.Name = "ribbonPageGroup2";
-            ribbonPageGroup2.Text = "ribbonPageGroup2";
+            ribbonPageGroup2.Text = "Veri";
             // 
             // ribbonStatusBar1
             // 
@@ -175,6 +230,13 @@
             nbiAyarlar.Name = "nbiAyarlar";
             nbiAyarlar.LinkClicked += nbiAyarlar_LinkClicked;
             // 
+            // nbiParametreler
+            // 
+            nbiParametreler.Caption = "Parametreler";
+            nbiParametreler.ImageOptions.SmallImage = Properties.Resources.iconsetredtoblack4_32x32;
+            nbiParametreler.Name = "nbiParametreler";
+            nbiParametreler.LinkClicked += nbiParametreler_LinkClicked;
+            // 
             // navBarGroup2
             // 
             navBarGroup2.Caption = "Ürün Kategorileri";
@@ -225,13 +287,6 @@
             xtraTabControlMain.TabIndex = 0;
             xtraTabControlMain.CloseButtonClick += xtraTabControlMain_CloseButtonClick;
             // 
-            // nbiParametreler
-            // 
-            nbiParametreler.Caption = "Parametreler";
-            nbiParametreler.ImageOptions.SmallImage = Properties.Resources.iconsetredtoblack4_32x32;
-            nbiParametreler.Name = "nbiParametreler";
-            nbiParametreler.LinkClicked += nbiParametreler_LinkClicked;
-            // 
             // frmAna
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -273,10 +328,17 @@
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup4;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup5;
         private DevExpress.XtraTab.XtraTabControl xtraTabControlMain;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem bbiYeni;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraNavBar.NavBarItem nbiKategoriler;
         private DevExpress.XtraNavBar.NavBarItem nbiUrunListesi;
         private DevExpress.XtraNavBar.NavBarItem nbiParametreler;
+
+
+        private DevExpress.XtraBars.BarButtonItem bbiIlkKayit;
+        private DevExpress.XtraBars.BarButtonItem bbiOncekiKayit;
+        private DevExpress.XtraBars.BarButtonItem bbiSonrakiKayit;
+        private DevExpress.XtraBars.BarButtonItem bbiSonKayit;
+        private DevExpress.XtraBars.BarButtonItem bbiSil;
     }
 }

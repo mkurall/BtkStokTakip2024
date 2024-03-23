@@ -19,7 +19,7 @@ namespace BtkProje.App.Sayfalar
 
             repositoryItemLookUpEditBirimler.DataSource = DbServisi.BirimListesi();
 
-            repositoryItemLookUpEditKategoriler.DataSource = DbServisi.KategoriListesi();
+            repositoryItemLookUpEditKategoriler.DataSource = DbServisi.KategoriListesi(true);
 
             VerileriYukle();
         }

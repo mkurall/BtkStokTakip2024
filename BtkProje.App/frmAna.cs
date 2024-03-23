@@ -78,5 +78,80 @@ namespace BtkProje.App
                 .iconsetredtoblack4_32x32
                 );
         }
+
+
+        UserControl AktifSayfaGetir()
+        {
+            XtraTabPage tabPage =
+                xtraTabControlMain.SelectedTabPage;
+
+            if (tabPage != null)
+            {
+                if (tabPage.Controls.Count > 0)
+                    return tabPage.Controls[0] as UserControl;
+            }
+
+            return null;
+        }
+
+        private void bbiIlkKayit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            UserControl uc = AktifSayfaGetir();
+
+            IBtkVeriSayfasi veri = uc as IBtkVeriSayfasi;
+
+            if (veri != null)
+            {
+                veri.GitIlk();
+            }
+        }
+
+        private void bbiOncekiKayit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            UserControl uc = AktifSayfaGetir();
+
+            IBtkVeriSayfasi veri = uc as IBtkVeriSayfasi;
+
+            if (veri != null)
+            {
+                veri.GitOnceki();
+            }
+        }
+
+        private void bbiSonrakiKayit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            UserControl uc = AktifSayfaGetir();
+
+            IBtkVeriSayfasi veri = uc as IBtkVeriSayfasi;
+
+            if (veri != null)
+            {
+                veri.GitSonraki();
+            }
+        }
+
+        private void bbiSonKayit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            UserControl uc = AktifSayfaGetir();
+
+            IBtkVeriSayfasi veri = uc as IBtkVeriSayfasi;
+
+            if (veri != null)
+            {
+                veri.GitSon();
+            }
+        }
+
+        private void bbiSil_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            UserControl uc = AktifSayfaGetir();
+
+            IBtkVeriSayfasi veri = uc as IBtkVeriSayfasi;
+
+            if (veri != null)
+            {
+                veri.Sil();
+            }
+        }
     }
 }

@@ -54,8 +54,11 @@ namespace BtkProje.Servis
         #endregion
 
         #region Kategori İşlmeleri
-        public static List<TblKategori> KategoriListesi()
+        public static List<TblKategori> KategoriListesi(bool local=false)
         {
+            if (local)
+                return ctx.Kategoriler.Local.ToList();
+
             return ctx.Kategoriler.Include(x=>x.Urunler).ToList();
         }
 
