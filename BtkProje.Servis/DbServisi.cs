@@ -34,6 +34,7 @@ namespace BtkProje.Servis
         {
             ctx.SaveChanges();
         }
+
         #region Kullanici İşlemleri
         public static List<TblKullanici> KullaniciListesi()
         {
