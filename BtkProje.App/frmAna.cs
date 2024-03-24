@@ -188,5 +188,15 @@ namespace BtkProje.App
         {
             Process.Start(new ProcessStartInfo("https://www.btkakademi.gov.tr") { UseShellExecute = true });
         }
+
+        private void nbiStokGiris_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            SayfaKontrol.SayfaAc<UcStokGiris>("Stok Giriþi", null, true);
+        }
+
+        private void navBarItem2_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            SayfaKontrol.SayfaAc<UcStokCikis>("Stok Çýkýþý", null, true);
+        }
     }
 }

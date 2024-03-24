@@ -180,5 +180,54 @@ namespace BtkProje.Servis
             ctx.Tedarikciler.Remove(tedarikci);
         }
         #endregion
+
+
+        #region Stok Giriş İşlmeleri
+        
+        public static List<TblStokGiris> StokGirisListesi()
+        {
+            return ctx.StokGirisler.ToList();
+        }
+
+        public static BindingList<TblStokGiris> StokGirisBagliListesi()
+        {
+            ctx.StokGirisler.Load();
+            return ctx.StokGirisler.Local.ToBindingList();
+        }
+
+        public static void StokGirisEkle(TblStokGiris giris)
+        {
+            ctx.StokGirisler.Add(giris);
+        }
+        public static void StokGirisSil(TblStokGiris giris)
+        {
+            ctx.StokGirisler.Remove(giris);
+        }
+
+        #endregion
+
+        #region Stok Çıkış İşlmeleri
+
+        public static List<TblStokCikis> StokCikisListesi()
+        {
+            return ctx.StokCikislar.ToList();
+        }
+
+        public static BindingList<TblStokCikis> StokCikisBagliListesi()
+        {
+            ctx.StokCikislar.Load();
+            return ctx.StokCikislar.Local.ToBindingList();
+        }
+
+        public static void StokCikisEkle(TblStokCikis cikis)
+        {
+            ctx.StokCikislar.Add(cikis);
+        }
+        public static void StokCikisSil(TblStokCikis cikis)
+        {
+            ctx.StokCikislar.Remove(cikis);
+        }
+
+        #endregion
     }
 }

@@ -40,6 +40,7 @@
             colMinStok = new DevExpress.XtraGrid.Columns.GridColumn();
             repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             colMaksStok = new DevExpress.XtraGrid.Columns.GridColumn();
+            colStok = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)repositoryItemLookUpEditKategoriler).BeginInit();
@@ -60,10 +61,11 @@
             // 
             // gridView1
             // 
-            gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colUrunKod, colUrunAd, colKategori, colAciklama, colBirimId, colMinStok, colMaksStok });
+            gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colUrunKod, colUrunAd, colKategori, colAciklama, colBirimId, colMinStok, colMaksStok, colStok });
             gridView1.GridControl = gridControl1;
             gridView1.Name = "gridView1";
             gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            gridView1.CustomUnboundColumnData += gridView1_CustomUnboundColumnData;
             // 
             // colUrunKod
             // 
@@ -164,6 +166,17 @@
             colMaksStok.VisibleIndex = 6;
             colMaksStok.Width = 94;
             // 
+            // colStok
+            // 
+            colStok.Caption = "Mevcut Stok";
+            colStok.FieldName = "colStok";
+            colStok.MinWidth = 25;
+            colStok.Name = "colStok";
+            colStok.UnboundDataType = typeof(double);
+            colStok.Visible = true;
+            colStok.VisibleIndex = 7;
+            colStok.Width = 94;
+            // 
             // UcUrunler
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -193,5 +206,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMinStok;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
         private DevExpress.XtraGrid.Columns.GridColumn colMaksStok;
+        private DevExpress.XtraGrid.Columns.GridColumn colStok;
     }
 }

@@ -4,6 +4,7 @@ using BtkProje.Model.Db;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BtkProje.Model.Migrations
 {
     [DbContext(typeof(BtkProjeDbContext))]
-    partial class BtkProjeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240324071129_StokGirisCikis")]
+    partial class StokGirisCikis
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -235,7 +238,7 @@ namespace BtkProje.Model.Migrations
 
                     b.HasIndex("UrunId");
 
-                    b.ToTable("StokCikislar");
+                    b.ToTable("TblStokCikis");
                 });
 
             modelBuilder.Entity("BtkProje.Model.Modeller.TblStokGiris", b =>
@@ -283,7 +286,7 @@ namespace BtkProje.Model.Migrations
 
                     b.HasIndex("UrunId");
 
-                    b.ToTable("StokGirisler");
+                    b.ToTable("TblStokGiris");
                 });
 
             modelBuilder.Entity("BtkProje.Model.Modeller.TblTedarikci", b =>

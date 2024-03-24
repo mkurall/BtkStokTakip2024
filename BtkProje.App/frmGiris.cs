@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,13 +20,28 @@ namespace BtkProje.App
             InitializeComponent();
         }
 
+        public static string ByteArrayToString(byte[] ba)
+        {
+            StringBuilder hex = new StringBuilder(ba.Length * 2);
+            foreach (byte b in ba)
+                hex.AppendFormat("{0:x2}", b);
+            return hex.ToString();
+        }
+
         private async void btnGiris_Click(object sender, EventArgs e)
         {
             progressPanel1.Visible = true;
+            btnGiris.Enabled = false;
+            txtKullaniciAd.Enabled = false;
+            txtParola.Enabled = false;
 
             await Task.Run(() =>
             {
-                bool basariliMi = DbServisi.OturumAc(txtKullaniciAd.Text, txtParola.Text);
+
+                string sifreliParola = ByteArrayToString(MD5.HashData(Encoding.UTF8.GetBytes(txtParola.Text)));
+
+
+                bool basariliMi = DbServisi.OturumAc(txtKullaniciAd.Text, sifreliParola);
 
                 Invoke(new Action(()=> {
 
@@ -40,6 +56,10 @@ namespace BtkProje.App
                     }));
             });
 
+
+            txtParola.Enabled = true;
+            txtKullaniciAd.Enabled = true;
+            btnGiris.Enabled = true;
             progressPanel1.Visible = false;
         }
     }

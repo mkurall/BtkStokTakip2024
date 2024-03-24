@@ -20,5 +20,15 @@ namespace BtkProje.Model.Modeller
         public string? Mail { get; set; }
         [MaxLength(100)]
         public string? Adres { get; set; }
+
+        public List<TblStokCikis> StokCikislar { get; set; } = new List<TblStokCikis>();
+
+        public string Bilgi
+        {
+            get
+            {
+                return FirmaAd + "(" + YetkiliAdSoyad + ")";
+            }
+        }
     }
 }

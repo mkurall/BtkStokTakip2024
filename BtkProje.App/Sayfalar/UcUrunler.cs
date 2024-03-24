@@ -1,4 +1,5 @@
-﻿using BtkProje.Servis;
+﻿using BtkProje.Model.Modeller;
+using BtkProje.Servis;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,5 +30,24 @@ namespace BtkProje.App.Sayfalar
             gridControl1.DataSource = DbServisi.UrunBagliListesi();
         }
 
+        private void gridView1_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
+        {
+            if(e.IsGetData)
+            {
+                TblUrun urun = e.Row as TblUrun;
+
+                if(urun != null )
+                {
+                    double cikisMiktari = DbServisi.StokCikisBagliListesi().Where(x=>x.UrunId == urun.Id).Sum(x => x.Miktar);
+                    double girisMiktari = DbServisi.StokGirisBagliListesi().Where(x => x.UrunId == urun.Id).Sum(x => x.Miktar);
+
+
+
+                    e.Value = girisMiktari - cikisMiktari;
+                }
+
+                
+            }
+        }
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -44,6 +45,28 @@ namespace BtkProje.Model.Db
                 .HasOne(x => x.Birim)
                 .WithMany()
                 .HasForeignKey(x=>x.BirimId);
+
+
+            modelBuilder.Entity<TblUrun>()
+                .HasMany(x => x.StokCikislar)//TblUrunler modelinde tanımlı
+                .WithOne(x => x.Urun) //TblStokCikis modelinde tanımlı
+                .HasForeignKey(x => x.UrunId);
+
+            modelBuilder.Entity<TblUrun>()
+                .HasMany(x => x.StokGirisler)//TblUrunler modelinde tanımlı
+                .WithOne(x => x.Urun) //TblStokGiris modelinde tanımlı
+                .HasForeignKey(x => x.UrunId);
+
+
+            modelBuilder.Entity<TblMusteri>()
+                .HasMany(x => x.StokCikislar)//TblMusteri modelinde tanımlı
+                .WithOne(x => x.Musteri) //TblStokCikis modelinde tanımlı
+                .HasForeignKey(x => x.MusteriId);
+
+            modelBuilder.Entity<TblTedarikci>()
+                .HasMany(x => x.StokGirisler)//TblTedarikci modelinde tanımlı
+                .WithOne(x => x.Tedarikci) //TblStokGiris modelinde tanımlı
+                .HasForeignKey(x => x.TedarikciId);
         }
 
         public void TemelVerileriYaz(TblKullanici kullanici)
@@ -58,6 +81,21 @@ namespace BtkProje.Model.Db
                 {
                     ((TemelModel)varlik.Entity).OlusturmaTarihi = DateTime.Now;
                     ((TemelModel)varlik.Entity).OlusturanKullanici = kullanici;
+
+
+                    if(varlik.Entity is TblKullanici)
+                    {
+                        string parola = ((TblKullanici)varlik.Entity).Parola;
+
+                        byte[] parolaBytes = Encoding.UTF8.GetBytes(parola);
+
+                        byte[] res =  MD5.HashData(parolaBytes);
+
+                        string sifreliParola = ByteArrayToString(res);
+
+                        ((TblKullanici)varlik.Entity).Parola = sifreliParola;
+                    }
+
                 }
                 if (varlik.State == EntityState.Modified)
                 {
@@ -67,6 +105,13 @@ namespace BtkProje.Model.Db
 
             }
         }
+        public static string ByteArrayToString(byte[] ba)
+        {
+            StringBuilder hex = new StringBuilder(ba.Length * 2);
+            foreach (byte b in ba)
+                hex.AppendFormat("{0:x2}", b);
+            return hex.ToString();
+        }
 
         public DbSet<TblKullanici> Kullanicilar { get; set; }
         public DbSet<TblKategori> Kategoriler { get; set; }
@@ -75,5 +120,7 @@ namespace BtkProje.Model.Db
 
         public DbSet<TblMusteri> Musteriler { get; set; }
         public DbSet<TblTedarikci> Tedarikciler { get; set; }
+        public DbSet<TblStokGiris> StokGirisler { get; set; }
+        public DbSet<TblStokCikis> StokCikislar { get; set; }
     }
 }

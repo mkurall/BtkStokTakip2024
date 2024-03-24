@@ -12,8 +12,14 @@ namespace BtkProje.Model.Modeller
         public int Id { get; set; }
         [MaxLength(50)]
         public string KullaniciAdi { get; set; }
+        
+        
+        
         [MaxLength(50)]
         public string Parola { get; set; }
+
+
+
         [MaxLength(50)]
         public string? Ad { get; set; }
         [MaxLength(50)]
