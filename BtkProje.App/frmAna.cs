@@ -1,6 +1,8 @@
+using BtkProje.App.Raporlar;
 using BtkProje.App.Sayfalar;
 using BtkProje.Servis;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
 using DevExpress.XtraTab;
 using DevExpress.XtraTab.ViewInfo;
 using System.Diagnostics;
@@ -197,6 +199,13 @@ namespace BtkProje.App
         private void navBarItem2_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             SayfaKontrol.SayfaAc<UcStokCikis>("Stok Çýkýþý", null, true);
+        }
+
+        private void nbiSiparisListesi_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            XrSiparisListesi rapor = new XrSiparisListesi();
+
+            rapor.ShowPreviewDialog();
         }
     }
 }

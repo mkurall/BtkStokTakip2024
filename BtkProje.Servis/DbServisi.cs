@@ -26,7 +26,7 @@ namespace BtkProje.Servis
             //Hiç kullanıcı yok ise bir tane oluştur
             if(ctx.Kullanicilar.Count()<=0)
             {
-                ctx.Kullanicilar.Add(new TblKullanici() { KullaniciAdi = "admin", Parola = "1234", Ad = "", Soyad = "", Yetki = 0 });
+                ctx.Kullanicilar.Add(new TblKullanici() { KullaniciAdi = "admin", Parola = "81dc9bdb52d04dc20036dbd8313ed055", Ad = "", Soyad = "", Yetki = 0 });
                 ctx.SaveChanges();
             }
 
@@ -228,6 +228,31 @@ namespace BtkProje.Servis
             ctx.StokCikislar.Remove(cikis);
         }
 
+
+
+
         #endregion
+
+        public static List<TblUrun> KritikStokListesi()
+        {
+            ctx.Urunler.Load();
+
+            var list = ctx.Urunler.Local.ToList();
+
+            return list.Where(x => MevcutStokHesapla(x) <= x.MinStok).ToList();
+        }
+
+        public static double MevcutStokHesapla(TblUrun urun)
+        {
+            if (urun != null)
+            {
+                double cikisMiktari = DbServisi.StokCikisBagliListesi().Where(x => x.UrunId == urun.Id).Sum(x => x.Miktar);
+                double girisMiktari = DbServisi.StokGirisBagliListesi().Where(x => x.UrunId == urun.Id).Sum(x => x.Miktar);
+
+                return girisMiktari - cikisMiktari;
+            }
+
+            return 0;
+        }
     }
 }

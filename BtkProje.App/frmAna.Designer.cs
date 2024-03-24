@@ -78,6 +78,8 @@
             xtraTabControlMain = new DevExpress.XtraTab.XtraTabControl();
             defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(components);
             workspaceManager1 = new DevExpress.Utils.WorkspaceManager(components);
+            navBarGroup7 = new DevExpress.XtraNavBar.NavBarGroup();
+            nbiSiparisListesi = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)ribbonControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)popupMenu1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainerControl1).BeginInit();
@@ -327,11 +329,11 @@
             // 
             // ribbonStatusBar1
             // 
-            ribbonStatusBar1.Location = new Point(0, 621);
+            ribbonStatusBar1.Location = new Point(0, 619);
             ribbonStatusBar1.Margin = new Padding(4, 2, 4, 2);
             ribbonStatusBar1.Name = "ribbonStatusBar1";
             ribbonStatusBar1.Ribbon = ribbonControl1;
-            ribbonStatusBar1.Size = new Size(917, 36);
+            ribbonStatusBar1.Size = new Size(917, 38);
             // 
             // splitContainerControl1
             // 
@@ -349,7 +351,7 @@
             // 
             splitContainerControl1.Panel2.Controls.Add(xtraTabControlMain);
             splitContainerControl1.Panel2.Text = "Panel2";
-            splitContainerControl1.Size = new Size(917, 447);
+            splitContainerControl1.Size = new Size(917, 445);
             splitContainerControl1.SplitterPosition = 271;
             splitContainerControl1.TabIndex = 2;
             // 
@@ -363,13 +365,13 @@
             navBarControl1.Appearance.ItemHotTracked.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
             navBarControl1.Appearance.ItemHotTracked.Options.UseFont = true;
             navBarControl1.Dock = DockStyle.Fill;
-            navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] { navBarGroup1, navBarGroup2, navBarGroup3, navBarGroup4, navBarGroup5, navBarGroup6 });
-            navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] { nbiKullanicilar, nbiAyarlar, nbiKategoriler, nbiUrunListesi, nbiParametreler, nbiTedarikciler, nbiMusteriler, nbiStokGiris, navBarItem2 });
+            navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] { navBarGroup1, navBarGroup2, navBarGroup3, navBarGroup4, navBarGroup5, navBarGroup6, navBarGroup7 });
+            navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] { nbiKullanicilar, nbiAyarlar, nbiKategoriler, nbiUrunListesi, nbiParametreler, nbiTedarikciler, nbiMusteriler, nbiStokGiris, navBarItem2, nbiSiparisListesi });
             navBarControl1.Location = new Point(0, 0);
             navBarControl1.Margin = new Padding(4, 2, 4, 2);
             navBarControl1.Name = "navBarControl1";
             navBarControl1.OptionsNavPane.ExpandedWidth = 271;
-            navBarControl1.Size = new Size(271, 447);
+            navBarControl1.Size = new Size(271, 445);
             navBarControl1.TabIndex = 0;
             navBarControl1.Text = "navBarControl1";
             // 
@@ -489,7 +491,7 @@
             xtraTabControlMain.Location = new Point(0, 0);
             xtraTabControlMain.Margin = new Padding(4, 2, 4, 2);
             xtraTabControlMain.Name = "xtraTabControlMain";
-            xtraTabControlMain.Size = new Size(631, 447);
+            xtraTabControlMain.Size = new Size(631, 445);
             xtraTabControlMain.TabIndex = 0;
             xtraTabControlMain.CloseButtonClick += xtraTabControlMain_CloseButtonClick;
             // 
@@ -501,6 +503,21 @@
             // 
             workspaceManager1.TargetControl = this;
             workspaceManager1.TransitionType = pushTransition1;
+            // 
+            // navBarGroup7
+            // 
+            navBarGroup7.Caption = "Raporlar";
+            navBarGroup7.Expanded = true;
+            navBarGroup7.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] { new DevExpress.XtraNavBar.NavBarItemLink(nbiSiparisListesi) });
+            navBarGroup7.Name = "navBarGroup7";
+            // 
+            // nbiSiparisListesi
+            // 
+            nbiSiparisListesi.Caption = "Sipariş Listesi";
+            nbiSiparisListesi.ImageOptions.LargeImage = Properties.Resources.insert_32x32;
+            nbiSiparisListesi.ImageOptions.SmallImage = Properties.Resources.insert_16x16;
+            nbiSiparisListesi.Name = "nbiSiparisListesi";
+            nbiSiparisListesi.LinkClicked += nbiSiparisListesi_LinkClicked;
             // 
             // frmAna
             // 
@@ -581,5 +598,7 @@
         private DevExpress.XtraBars.BarStaticItem bsiBtkLink;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroup7;
+        private DevExpress.XtraNavBar.NavBarItem nbiSiparisListesi;
     }
 }

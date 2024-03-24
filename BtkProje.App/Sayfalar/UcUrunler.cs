@@ -32,22 +32,16 @@ namespace BtkProje.App.Sayfalar
 
         private void gridView1_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
         {
-            if(e.IsGetData)
+            if (e.IsGetData)
             {
                 TblUrun urun = e.Row as TblUrun;
-
-                if(urun != null )
-                {
-                    double cikisMiktari = DbServisi.StokCikisBagliListesi().Where(x=>x.UrunId == urun.Id).Sum(x => x.Miktar);
-                    double girisMiktari = DbServisi.StokGirisBagliListesi().Where(x => x.UrunId == urun.Id).Sum(x => x.Miktar);
-
-
-
-                    e.Value = girisMiktari - cikisMiktari;
-                }
-
-                
+                e.Value = DbServisi.MevcutStokHesapla(urun);
             }
+        }
+
+        private void btnYazdir_Click(object sender, EventArgs e)
+        {
+            gridView1.ShowPrintPreview();
         }
     }
 }

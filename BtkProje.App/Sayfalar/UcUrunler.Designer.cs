@@ -41,21 +41,25 @@
             repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             colMaksStok = new DevExpress.XtraGrid.Columns.GridColumn();
             colStok = new DevExpress.XtraGrid.Columns.GridColumn();
+            panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            btnYazdir = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)repositoryItemLookUpEditKategoriler).BeginInit();
             ((System.ComponentModel.ISupportInitialize)repositoryItemLookUpEditBirimler).BeginInit();
             ((System.ComponentModel.ISupportInitialize)repositoryItemSpinEdit1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)panelControl1).BeginInit();
+            panelControl1.SuspendLayout();
             SuspendLayout();
             // 
             // gridControl1
             // 
             gridControl1.Dock = DockStyle.Fill;
-            gridControl1.Location = new Point(0, 0);
+            gridControl1.Location = new Point(0, 63);
             gridControl1.MainView = gridView1;
             gridControl1.Name = "gridControl1";
             gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { repositoryItemLookUpEditBirimler, repositoryItemSpinEdit1, repositoryItemLookUpEditKategoriler });
-            gridControl1.Size = new Size(899, 573);
+            gridControl1.Size = new Size(899, 510);
             gridControl1.TabIndex = 3;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -177,11 +181,31 @@
             colStok.VisibleIndex = 7;
             colStok.Width = 94;
             // 
+            // panelControl1
+            // 
+            panelControl1.Controls.Add(btnYazdir);
+            panelControl1.Dock = DockStyle.Top;
+            panelControl1.Location = new Point(0, 0);
+            panelControl1.Name = "panelControl1";
+            panelControl1.Size = new Size(899, 63);
+            panelControl1.TabIndex = 4;
+            // 
+            // btnYazdir
+            // 
+            btnYazdir.ImageOptions.Image = Properties.Resources.printer_32x32;
+            btnYazdir.Location = new Point(23, 14);
+            btnYazdir.Name = "btnYazdir";
+            btnYazdir.Size = new Size(118, 36);
+            btnYazdir.TabIndex = 0;
+            btnYazdir.Text = "Yazdır";
+            btnYazdir.Click += btnYazdir_Click;
+            // 
             // UcUrunler
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(gridControl1);
+            Controls.Add(panelControl1);
             Name = "UcUrunler";
             Size = new Size(899, 573);
             ((System.ComponentModel.ISupportInitialize)gridControl1).EndInit();
@@ -189,6 +213,8 @@
             ((System.ComponentModel.ISupportInitialize)repositoryItemLookUpEditKategoriler).EndInit();
             ((System.ComponentModel.ISupportInitialize)repositoryItemLookUpEditBirimler).EndInit();
             ((System.ComponentModel.ISupportInitialize)repositoryItemSpinEdit1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)panelControl1).EndInit();
+            panelControl1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -207,5 +233,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
         private DevExpress.XtraGrid.Columns.GridColumn colMaksStok;
         private DevExpress.XtraGrid.Columns.GridColumn colStok;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.SimpleButton btnYazdir;
     }
 }
