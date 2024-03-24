@@ -15,8 +15,22 @@ namespace BtkProje.Servis
         static BtkProjeDbContext ctx = new BtkProjeDbContext();
         public static TblKullanici OturumAcanKullanici { get; private set; }
 
+        static DbServisi()
+        {
+            //Veritabanının oluşturulduğuna emin ol
+            ctx.Database.EnsureCreated();
+        }
+
         public static bool OturumAc(string kullaniciAdi, string parola)
         {
+            //Hiç kullanıcı yok ise bir tane oluştur
+            if(ctx.Kullanicilar.Count()<=0)
+            {
+                ctx.Kullanicilar.Add(new TblKullanici() { KullaniciAdi = "admin", Parola = "1234", Ad = "", Soyad = "", Yetki = 0 });
+                ctx.SaveChanges();
+            }
+
+
             TblKullanici kull = ctx.Kullanicilar.
                 FirstOrDefault(x => x.KullaniciAdi == kullaniciAdi &&
                 x.Parola == parola);
@@ -39,6 +53,9 @@ namespace BtkProje.Servis
         #region Kullanici İşlemleri
         public static List<TblKullanici> KullaniciListesi()
         {
+            if(OturumAcanKullanici.Yetki!=YetkiTurleri.Yonetici)
+                return new List<TblKullanici>();    
+
             return ctx.Kullanicilar.ToList();
         }
         public static BindingList<TblKullanici> KullaniciBagliListesi()
@@ -49,6 +66,9 @@ namespace BtkProje.Servis
 
         public static void KullaniciSil(TblKullanici kullanici)
         {
+            if (OturumAcanKullanici.Yetki == YetkiTurleri.Personel)
+                return;
+
             ctx.Kullanicilar.Remove(kullanici);
         }
         #endregion
@@ -148,7 +168,7 @@ namespace BtkProje.Servis
         }
         public static BindingList<TblTedarikci> TedarikciBagliListesi()
         {
-            ctx.Musteriler.Load();
+            ctx.Tedarikciler.Load();
             return ctx.Tedarikciler.Local.ToBindingList();
         }
         public static void TedarikciEkle(TblTedarikci tedarikci)

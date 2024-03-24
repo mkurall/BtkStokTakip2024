@@ -36,6 +36,7 @@ namespace BtkProje.App.Sayfalar
             tabPage.Text = baslik;
             tabPage.ImageOptions.Image = simge;
             tabPage.Tag = sayfaTuru;//*******
+           
 
             //Sayfa içeriğini oluştur ve ekle
             UserControl icerik = (UserControl)Activator.CreateInstance(sayfaTuru, sayfaParametre);

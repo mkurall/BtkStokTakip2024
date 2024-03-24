@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            DevExpress.Utils.Animation.PushTransition pushTransition1 = new DevExpress.Utils.Animation.PushTransition();
             ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             bbiKaydet = new DevExpress.XtraBars.BarButtonItem();
             bbiYeni = new DevExpress.XtraBars.BarButtonItem();
@@ -39,11 +40,23 @@
             bbiSil = new DevExpress.XtraBars.BarButtonItem();
             skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             barSubItem1 = new DevExpress.XtraBars.BarSubItem();
+            barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            barButtonGroup1 = new DevExpress.XtraBars.BarButtonGroup();
+            barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            bsiOturumKapat = new DevExpress.XtraBars.BarStaticItem();
+            barButtonGroup3 = new DevExpress.XtraBars.BarButtonGroup();
+            bbiKullanici = new DevExpress.XtraBars.BarButtonItem();
+            popupMenu1 = new DevExpress.XtraBars.PopupMenu(components);
+            bsiPRolamiDegistir = new DevExpress.XtraBars.BarStaticItem();
+            bsiBtkLink = new DevExpress.XtraBars.BarStaticItem();
             ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
@@ -64,12 +77,9 @@
             navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
             xtraTabControlMain = new DevExpress.XtraTab.XtraTabControl();
             defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(components);
-            barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            barButtonGroup1 = new DevExpress.XtraBars.BarButtonGroup();
-            barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
-            barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            workspaceManager1 = new DevExpress.Utils.WorkspaceManager(components);
             ((System.ComponentModel.ISupportInitialize)ribbonControl1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)popupMenu1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainerControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainerControl1.Panel1).BeginInit();
             splitContainerControl1.Panel1.SuspendLayout();
@@ -82,14 +92,18 @@
             // 
             // ribbonControl1
             // 
+            ribbonControl1.EmptyAreaImageOptions.ImagePadding = new Padding(26, 23, 26, 23);
             ribbonControl1.ExpandCollapseItem.Id = 0;
-            ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbonControl1.ExpandCollapseItem, bbiKaydet, bbiYeni, bbiIlkKayit, bbiOncekiKayit, bbiSonrakiKayit, bbiSonKayit, bbiSil, skinRibbonGalleryBarItem1, barSubItem1, barButtonItem1, barButtonGroup1, barButtonItem2, barStaticItem1, barButtonItem3 });
+            ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbonControl1.ExpandCollapseItem, bbiKaydet, bbiYeni, bbiIlkKayit, bbiOncekiKayit, bbiSonrakiKayit, bbiSonKayit, bbiSil, skinRibbonGalleryBarItem1, barSubItem1, barButtonItem1, barButtonGroup1, barButtonItem2, barStaticItem1, bsiOturumKapat, barButtonGroup3, bbiKullanici, bsiPRolamiDegistir, bsiBtkLink });
             ribbonControl1.Location = new Point(0, 0);
-            ribbonControl1.MaxItemId = 15;
+            ribbonControl1.Margin = new Padding(4, 2, 4, 2);
+            ribbonControl1.MaxItemId = 29;
             ribbonControl1.Name = "ribbonControl1";
-            ribbonControl1.PageHeaderItemLinks.Add(barButtonItem3);
-            ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1, ribbonPage2 });
-            ribbonControl1.Size = new Size(1048, 174);
+            ribbonControl1.OptionsMenuMinWidth = 289;
+            ribbonControl1.PageHeaderItemLinks.Add(barButtonGroup3);
+            ribbonControl1.PageHeaderItemLinks.Add(bsiBtkLink);
+            ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1, ribbonPage2, ribbonPage3 });
+            ribbonControl1.Size = new Size(917, 174);
             ribbonControl1.StatusBar = ribbonStatusBar1;
             ribbonControl1.Click += ribbonControl1_Click;
             // 
@@ -175,6 +189,96 @@
             barSubItem1.SmallWithoutTextWidth = 100;
             barSubItem1.SmallWithTextWidth = 100;
             // 
+            // barButtonItem1
+            // 
+            barButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
+            barButtonItem1.Caption = "barButtonItem1";
+            barButtonItem1.Id = 10;
+            barButtonItem1.Name = "barButtonItem1";
+            barButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            // 
+            // barButtonGroup1
+            // 
+            barButtonGroup1.Caption = "barButtonGroup1";
+            barButtonGroup1.Id = 11;
+            barButtonGroup1.Name = "barButtonGroup1";
+            barButtonGroup1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
+            // 
+            // barButtonItem2
+            // 
+            barButtonItem2.Caption = "barButtonItem2";
+            barButtonItem2.Id = 12;
+            barButtonItem2.Name = "barButtonItem2";
+            barButtonItem2.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
+            // 
+            // barStaticItem1
+            // 
+            barStaticItem1.Caption = "barStaticItem1";
+            barStaticItem1.Id = 13;
+            barStaticItem1.Name = "barStaticItem1";
+            // 
+            // bsiOturumKapat
+            // 
+            bsiOturumKapat.Caption = "Oturum Kapat";
+            bsiOturumKapat.Id = 16;
+            bsiOturumKapat.ImageOptions.Image = Properties.Resources.close_16x162;
+            bsiOturumKapat.ImageOptions.LargeImage = Properties.Resources.close_32x32;
+            bsiOturumKapat.Name = "bsiOturumKapat";
+            bsiOturumKapat.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            bsiOturumKapat.ShowImageInToolbar = false;
+            bsiOturumKapat.ItemClick += bsiOturumKapat_ItemClick;
+            // 
+            // barButtonGroup3
+            // 
+            barButtonGroup3.Caption = "barButtonGroup3";
+            barButtonGroup3.Id = 20;
+            barButtonGroup3.ItemLinks.Add(bbiKullanici);
+            barButtonGroup3.Name = "barButtonGroup3";
+            // 
+            // bbiKullanici
+            // 
+            bbiKullanici.ActAsDropDown = true;
+            bbiKullanici.AllowAllUp = true;
+            bbiKullanici.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
+            bbiKullanici.DropDownControl = popupMenu1;
+            bbiKullanici.Id = 21;
+            bbiKullanici.ImageOptions.Image = Properties.Resources.bouser_16x16;
+            bbiKullanici.ItemAppearance.Hovered.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            bbiKullanici.ItemAppearance.Hovered.Options.UseFont = true;
+            bbiKullanici.ItemAppearance.Normal.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            bbiKullanici.ItemAppearance.Normal.Options.UseFont = true;
+            bbiKullanici.ItemAppearance.Pressed.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            bbiKullanici.ItemAppearance.Pressed.Options.UseFont = true;
+            bbiKullanici.Name = "bbiKullanici";
+            bbiKullanici.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            // 
+            // popupMenu1
+            // 
+            popupMenu1.ItemLinks.Add(bsiPRolamiDegistir);
+            popupMenu1.ItemLinks.Add(bsiOturumKapat, true, "", "", true);
+            popupMenu1.Name = "popupMenu1";
+            popupMenu1.Ribbon = ribbonControl1;
+            // 
+            // bsiPRolamiDegistir
+            // 
+            bsiPRolamiDegistir.Caption = "Parolamı Değiştir";
+            bsiPRolamiDegistir.Id = 22;
+            bsiPRolamiDegistir.Name = "bsiPRolamiDegistir";
+            bsiPRolamiDegistir.ShowImageInToolbar = false;
+            // 
+            // bsiBtkLink
+            // 
+            bsiBtkLink.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
+            bsiBtkLink.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            bsiBtkLink.Caption = "BtkAkademi © 2024 | <a>www.btkakademi.com</a>";
+            bsiBtkLink.Id = 23;
+            bsiBtkLink.ImageOptions.Image = Properties.Resources.record_16x16;
+            bsiBtkLink.ImageOptions.LargeImage = Properties.Resources.record_32x32;
+            bsiBtkLink.ItemClickFireMode = DevExpress.XtraBars.BarItemEventFireMode.Immediate;
+            bsiBtkLink.Name = "bsiBtkLink";
+            bsiBtkLink.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            bsiBtkLink.HyperlinkClick += bsiBtkLink_HyperlinkClick;
+            // 
             // ribbonPage1
             // 
             ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup1, ribbonPageGroup2 });
@@ -210,17 +314,30 @@
             ribbonPageGroup3.Name = "ribbonPageGroup3";
             ribbonPageGroup3.Text = "ribbonPageGroup3";
             // 
+            // ribbonPage3
+            // 
+            ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup4 });
+            ribbonPage3.Name = "ribbonPage3";
+            ribbonPage3.Text = "Yardım";
+            // 
+            // ribbonPageGroup4
+            // 
+            ribbonPageGroup4.Name = "ribbonPageGroup4";
+            ribbonPageGroup4.Text = "ribbonPageGroup4";
+            // 
             // ribbonStatusBar1
             // 
-            ribbonStatusBar1.Location = new Point(0, 783);
+            ribbonStatusBar1.Location = new Point(0, 619);
+            ribbonStatusBar1.Margin = new Padding(4, 2, 4, 2);
             ribbonStatusBar1.Name = "ribbonStatusBar1";
             ribbonStatusBar1.Ribbon = ribbonControl1;
-            ribbonStatusBar1.Size = new Size(1048, 38);
+            ribbonStatusBar1.Size = new Size(917, 38);
             // 
             // splitContainerControl1
             // 
             splitContainerControl1.Dock = DockStyle.Fill;
             splitContainerControl1.Location = new Point(0, 174);
+            splitContainerControl1.Margin = new Padding(4, 2, 4, 2);
             splitContainerControl1.Name = "splitContainerControl1";
             // 
             // splitContainerControl1.Panel1
@@ -232,8 +349,8 @@
             // 
             splitContainerControl1.Panel2.Controls.Add(xtraTabControlMain);
             splitContainerControl1.Panel2.Text = "Panel2";
-            splitContainerControl1.Size = new Size(1048, 609);
-            splitContainerControl1.SplitterPosition = 294;
+            splitContainerControl1.Size = new Size(917, 445);
+            splitContainerControl1.SplitterPosition = 257;
             splitContainerControl1.TabIndex = 2;
             // 
             // navBarControl1
@@ -249,9 +366,10 @@
             navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] { navBarGroup1, navBarGroup2, navBarGroup3, navBarGroup4, navBarGroup5, navBarGroup6 });
             navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] { nbiKullanicilar, nbiAyarlar, nbiKategoriler, nbiUrunListesi, nbiParametreler, nbiTedarikciler, nbiMusteriler, navBarItem1, navBarItem2 });
             navBarControl1.Location = new Point(0, 0);
+            navBarControl1.Margin = new Padding(4, 2, 4, 2);
             navBarControl1.Name = "navBarControl1";
-            navBarControl1.OptionsNavPane.ExpandedWidth = 294;
-            navBarControl1.Size = new Size(294, 609);
+            navBarControl1.OptionsNavPane.ExpandedWidth = 257;
+            navBarControl1.Size = new Size(257, 445);
             navBarControl1.TabIndex = 0;
             navBarControl1.Text = "navBarControl1";
             // 
@@ -367,8 +485,9 @@
             xtraTabControlMain.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders;
             xtraTabControlMain.Dock = DockStyle.Fill;
             xtraTabControlMain.Location = new Point(0, 0);
+            xtraTabControlMain.Margin = new Padding(4, 2, 4, 2);
             xtraTabControlMain.Name = "xtraTabControlMain";
-            xtraTabControlMain.Size = new Size(739, 609);
+            xtraTabControlMain.Size = new Size(645, 445);
             xtraTabControlMain.TabIndex = 0;
             xtraTabControlMain.CloseButtonClick += xtraTabControlMain_CloseButtonClick;
             // 
@@ -376,53 +495,26 @@
             // 
             defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013 Dark Gray";
             // 
-            // barButtonItem1
+            // workspaceManager1
             // 
-            barButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
-            barButtonItem1.Caption = "barButtonItem1";
-            barButtonItem1.Id = 10;
-            barButtonItem1.Name = "barButtonItem1";
-            barButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-            // 
-            // barButtonGroup1
-            // 
-            barButtonGroup1.Caption = "barButtonGroup1";
-            barButtonGroup1.Id = 11;
-            barButtonGroup1.Name = "barButtonGroup1";
-            barButtonGroup1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
-            // 
-            // barButtonItem2
-            // 
-            barButtonItem2.Caption = "barButtonItem2";
-            barButtonItem2.Id = 12;
-            barButtonItem2.Name = "barButtonItem2";
-            barButtonItem2.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
-            // 
-            // barStaticItem1
-            // 
-            barStaticItem1.Caption = "barStaticItem1";
-            barStaticItem1.Id = 13;
-            barStaticItem1.Name = "barStaticItem1";
-            // 
-            // barButtonItem3
-            // 
-            barButtonItem3.Caption = "barButtonItem3";
-            barButtonItem3.Id = 14;
-            barButtonItem3.Name = "barButtonItem3";
+            workspaceManager1.TargetControl = this;
+            workspaceManager1.TransitionType = pushTransition1;
             // 
             // frmAna
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1048, 821);
+            ClientSize = new Size(917, 657);
             Controls.Add(splitContainerControl1);
             Controls.Add(ribbonControl1);
             Controls.Add(ribbonStatusBar1);
+            Margin = new Padding(4, 2, 4, 2);
             Name = "frmAna";
-            Text = "Form1";
+            Text = "Btk Stok Takip Uygulaması";
             WindowState = FormWindowState.Maximized;
             Shown += frmAna_Shown;
             ((System.ComponentModel.ISupportInitialize)ribbonControl1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)popupMenu1).EndInit();
             ((System.ComponentModel.ISupportInitialize)splitContainerControl1.Panel1).EndInit();
             splitContainerControl1.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainerControl1.Panel2).EndInit();
@@ -477,6 +569,15 @@
         private DevExpress.XtraBars.BarButtonGroup barButtonGroup1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarStaticItem barStaticItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.PopupMenu popupMenu1;
+        private DevExpress.XtraBars.BarStaticItem bsiOturumKapat;
+        private DevExpress.XtraBars.BarButtonGroup barButtonGroup2;
+        private DevExpress.Utils.WorkspaceManager workspaceManager1;
+        private DevExpress.XtraBars.BarButtonGroup barButtonGroup3;
+        private DevExpress.XtraBars.BarButtonItem bbiKullanici;
+        private DevExpress.XtraBars.BarStaticItem bsiPRolamiDegistir;
+        private DevExpress.XtraBars.BarStaticItem bsiBtkLink;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
     }
 }

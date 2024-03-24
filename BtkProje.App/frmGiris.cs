@@ -19,17 +19,28 @@ namespace BtkProje.App
             InitializeComponent();
         }
 
-        private void btnGiris_Click(object sender, EventArgs e)
+        private async void btnGiris_Click(object sender, EventArgs e)
         {
-            bool basariliMi = DbServisi.OturumAc(txtKullaniciAd.Text, txtParola.Text);
+            progressPanel1.Visible = true;
 
-            if(basariliMi) //Dialog Penceresini Başarılı dönerek kapatır
-                DialogResult = DialogResult.OK;
-            else
+            await Task.Run(() =>
             {
-                lblBilgi.Text = "Kullanıcı adı yada parola hatalı!";
-                lblBilgi.Visible = true;
-            }
+                bool basariliMi = DbServisi.OturumAc(txtKullaniciAd.Text, txtParola.Text);
+
+                Invoke(new Action(()=> {
+
+                        if (basariliMi) //Dialog Penceresini Başarılı dönerek kapatır
+                            DialogResult = DialogResult.OK;
+                        else
+                        {
+
+                            lblBilgi.Text = "Kullanıcı adı yada parola hatalı!";
+                            lblBilgi.Visible = true;
+                        }
+                    }));
+            });
+
+            progressPanel1.Visible = false;
         }
     }
 }

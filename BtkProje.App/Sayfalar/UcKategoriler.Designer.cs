@@ -50,7 +50,7 @@
             gridControl1.MainView = gridView1;
             gridControl1.Name = "gridControl1";
             gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { repositoryItemButtonEdit1 });
-            gridControl1.Size = new Size(441, 379);
+            gridControl1.Size = new Size(441, 445);
             gridControl1.TabIndex = 0;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -96,7 +96,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(gridControl1);
             Name = "UcKategoriler";
-            Size = new Size(503, 379);
+            Size = new Size(474, 445);
             ((System.ComponentModel.ISupportInitialize)gridControl1).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)repositoryItemButtonEdit1).EndInit();

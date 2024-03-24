@@ -3,10 +3,11 @@ using BtkProje.Servis;
 using DevExpress.XtraEditors;
 using DevExpress.XtraTab;
 using DevExpress.XtraTab.ViewInfo;
+using System.Diagnostics;
 
 namespace BtkProje.App
 {
-    public partial class frmAna : Form
+    public partial class frmAna : XtraForm
     {
         public frmAna()
         {
@@ -26,12 +27,13 @@ namespace BtkProje.App
             else
             {
                 //Oturum açtýktan sonra ne istersiniz yazýn
-
+                bbiKullanici.Caption = DbServisi.OturumAcanKullanici.KullaniciAdi;
             }
         }
 
         private void nbiKullanicilar_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            //TSayfa == UcKullanicilar Türünde
             SayfaKontrol.SayfaAc<UcKullanicilar>("Kullanýcýlar", Properties.Resources.usergroup_32x32, true);
         }
 
@@ -169,6 +171,22 @@ namespace BtkProje.App
         private void ribbonControl1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void bsiOturumKapat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            popupMenu1.HidePopup();
+            frmGiris form = new frmGiris();
+
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                bbiKullanici.Caption = DbServisi.OturumAcanKullanici.KullaniciAdi;
+            }
+        }
+
+        private void bsiBtkLink_HyperlinkClick(object sender, DevExpress.Utils.HyperlinkClickEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo("https://www.btkakademi.gov.tr") { UseShellExecute = true });
         }
     }
 }

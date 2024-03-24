@@ -10,9 +10,10 @@ namespace BtkProje.Model.Modeller
     public class TblKategori : TemelModel
     {
         public int Id { get; set; }
+
         [MaxLength(50)]
         public string KategoriAd { get; set; }
 
-        public List<TblUrun> Urunler { get; set; }
+        public List<TblUrun> Urunler { get; set; } = new List<TblUrun>();
     }
 }

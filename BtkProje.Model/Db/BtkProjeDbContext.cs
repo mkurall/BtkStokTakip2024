@@ -27,6 +27,7 @@ namespace BtkProje.Model.Db
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(connectionString);
+            //optionsBuilder.UseSqlite("Data Source = d:\\database.db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
